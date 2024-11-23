@@ -1,9 +1,35 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Helmet } from 'react-helmet-async';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+
+const signInForm = z.object({
+  email: z
+    .string({
+      message: 'Por favor, introduza um email válido',
+    })
+    .email({ message: 'Por favor, introduza um email válido' }),
+});
+
+type SignInForm = z.infer<typeof signInForm>;
 
 function SignIn() {
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SignInForm>({
+    resolver: zodResolver(signInForm),
+  });
+
+  async function handleSignInSubmit(data: SignInForm) {
+    console.info(data);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+  }
+
   return (
     <>
       <Helmet title="Login" />
@@ -14,12 +40,12 @@ function SignIn() {
             <p className="text-muted-foreground text-sml">Acompanhe suas vendas pelo painel do parceiro!</p>
           </div>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit(handleSignInSubmit)} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">O seu email</Label>
-              <Input placeholder="Insira o seu email" id="email" type="email" />
+              <Input placeholder="Insira o seu email" id="email" type="email" {...register('email')} />
             </div>
-            <Button className="w-full" type="submit">
+            <Button disabled={isSubmitting} className="w-full" type="submit">
               Acessar painel
             </Button>
           </form>
