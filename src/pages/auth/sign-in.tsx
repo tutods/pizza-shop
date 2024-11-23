@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
@@ -25,9 +26,19 @@ function SignIn() {
     resolver: zodResolver(signInForm),
   });
 
-  async function handleSignInSubmit(data: SignInForm) {
-    console.info(data);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  async function handleSignIn(data: SignInForm) {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      toast.success('Enviamos um link de autenticação para o seu e-mail.', {
+        action: {
+          label: 'Reenviar',
+          onClick: () => handleSignIn(data),
+        },
+      });
+    } catch {
+      toast.error('Credenciais inválidas.');
+    }
   }
 
   return (
@@ -40,7 +51,7 @@ function SignIn() {
             <p className="text-muted-foreground text-sml">Acompanhe suas vendas pelo painel do parceiro!</p>
           </div>
 
-          <form onSubmit={handleSubmit(handleSignInSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">O seu email</Label>
               <Input placeholder="Insira o seu email" id="email" type="email" {...register('email')} />
