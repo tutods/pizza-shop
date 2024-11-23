@@ -1,0 +1,13 @@
+colors: true
+
+pre-commit:
+  commands:
+    biome:
+      glob: "*.{ts,tsx,js,jsx,md,mdx,json,yaml,html,css,scss,sass,less}"
+      run: "npx biome check --write --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --no-errors-on-unmatched --staged"
+      stage_fixed: true
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx --no -- commitlint --edit $1

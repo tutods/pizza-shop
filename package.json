@@ -5,6 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@9.14.2",
   "scripts": {
+    "prepare": "lefthook install",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
@@ -24,6 +25,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@tutods/biome-config": "^1.1.4",
     "@types/node": "^22.9.3",
     "@types/react": "^18.3.12",
@@ -31,6 +34,7 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "globals": "^15.11.0",
+    "lefthook": "^1.8.4",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
     "typescript": "~5.6.2",
