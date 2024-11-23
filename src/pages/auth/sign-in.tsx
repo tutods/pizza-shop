@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { Button } from '~/components/ui/button';
+import { Input } from '~/components/ui/input';
+import { Label } from '~/components/ui/label';
 
 const signInForm = z.object({
   email: z
