@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["customManagers:biomeVersions", "config:recommended"],
+  "platformAutomerge": true,
+  "prCreation": "immediate",
+  "updateInternalDeps": true,
+  "rangeStrategy": "bump",
+  "automerge": true,
+  "automergeType": "pr",
+  "timezone": "Europe/Lisbon",
+  "schedule": ["after 3pm", "before 5am"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "Automerge non-major updates",
+      "matchUpdateTypes": ["minor", "patch", "lockFileMaintenance"],
+      "automerge": true
+    },
+    {
+      "description": "Open major updates",
+      "matchUpdateTypes": ["major", "bump"],
+      "automerge": false
+    }
+  ],
+  "hostRules": [
+    {
+      "matchHost": "https://npm.pkg.github.com/",
+      "hostType": "npm",
+      "token": "{{ secrets.GITHUB_TOKEN }}"
+    }
+  ],
+  "npmrc": "@tutods:registry=https://npm.pkg.github.com/"
+}
