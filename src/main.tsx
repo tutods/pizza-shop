@@ -11,7 +11,7 @@ const element = document.getElementById('root') as HTMLElement;
 createRoot(element).render(
   <StrictMode>
     <HelmetProvider>
-      <Helmet titleTemplate="%s | Pizza Shop" />
+      <Helmet titleTemplate="%s | pizza.shop" />
       <RouterProvider router={router} />
     </HelmetProvider>
   </StrictMode>,
