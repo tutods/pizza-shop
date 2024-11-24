@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router';
 import { toast } from 'sonner';
 import { z } from 'zod';
 import { Button } from '~/components/ui/button';
@@ -45,6 +46,10 @@ function SignIn() {
     <>
       <Helmet title="Login" />
       <div className="p-8">
+        <Button asChild className="absolute top-8 right-8" variant="ghost">
+          <Link to="/sign-up">Novo estabelecimento</Link>
+        </Button>
+
         <section className="flex w-[350px] flex-col justify-center gap-6">
           <div className="flex flex-col gap-2 text-center">
             <h1 className="font-semibold text-2xl tracking-tight">Acessar Painel</h1>
