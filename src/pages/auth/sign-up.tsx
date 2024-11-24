@@ -9,9 +9,15 @@ import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 
 const signUpForm = z.object({
-  restaurant: z.string(),
-  managerName: z.string(),
-  phone: z.string(),
+  restaurant: z.string({
+    message: '',
+  }),
+  managerName: z.string({
+    message: '',
+  }),
+  phone: z.string({
+    message: '',
+  }),
   email: z
     .string({
       message: 'Por favor, introduza um email válido',
