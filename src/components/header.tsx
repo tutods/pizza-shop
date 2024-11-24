@@ -1,5 +1,7 @@
 import { Home, Pizza, UtensilsCrossed } from 'lucide-react';
+import { AccountMenu } from '~/components/account-menu';
 import { NavLink } from '~/components/nav-link';
+import { ModeToggle } from '~/components/theme/mode-toggle';
 import { Separator } from '~/components/ui/separator';
 
 function Header() {
@@ -10,7 +12,7 @@ function Header() {
 
         <Separator orientation="vertical" className="h-6" />
 
-        <nav className="flex items-center gap-x-4 lg:gap-x-6">
+        <nav className="flex flex-1 items-center gap-x-4 lg:gap-x-6">
           <NavLink to="/">
             <Home className="size-4" />
             Dashboard
@@ -20,6 +22,11 @@ function Header() {
             Pedidos
           </NavLink>
         </nav>
+
+        <section className="flex flex-items-center gap-2">
+          <ModeToggle />
+          <AccountMenu />
+        </section>
       </div>
     </header>
   );

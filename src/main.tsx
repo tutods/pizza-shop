@@ -5,15 +5,18 @@ import { RouterProvider } from 'react-router';
 import { router } from '~/routes';
 import '~/index.css';
 import { Toaster } from 'sonner';
+import { ThemeProvider } from '~/components/theme/theme-provider';
 
 const element = document.getElementById('root') as HTMLElement;
 
 createRoot(element).render(
   <StrictMode>
     <HelmetProvider>
-      <Helmet titleTemplate="%s | pizza.shop" />
-      <Toaster richColors closeButton />
-      <RouterProvider router={router} />
+      <ThemeProvider storageKey="pizzashop-theme" defaultTheme="dark">
+        <Helmet titleTemplate="%s | pizza.shop" />
+        <Toaster richColors closeButton />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </HelmetProvider>
   </StrictMode>,
 );
