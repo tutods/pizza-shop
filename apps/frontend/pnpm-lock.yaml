@@ -7,24 +7,6 @@ settings:
 importers:
 
   .:
-    devDependencies:
-      '@biomejs/biome':
-        specifier: ^1.9.4
-        version: 1.9.4
-      '@commitlint/cli':
-        specifier: ^19.6.0
-        version: 19.6.0(@types/node@22.9.3)(typescript@5.6.3)
-      '@commitlint/config-conventional':
-        specifier: ^19.6.0
-        version: 19.6.0
-      '@tutods/biome-config':
-        specifier: ^1.1.4
-        version: 1.1.4(@biomejs/biome@1.9.4)
-      lefthook:
-        specifier: ^1.8.4
-        version: 1.8.4
-
-  apps/frontend:
     dependencies:
       '@hookform/resolvers':
         specifier: ^3.9.1
@@ -78,6 +60,18 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.9.4
+        version: 1.9.4
+      '@commitlint/cli':
+        specifier: ^19.6.0
+        version: 19.6.0(@types/node@22.9.3)(typescript@5.6.3)
+      '@commitlint/config-conventional':
+        specifier: ^19.6.0
+        version: 19.6.0
+      '@tutods/biome-config':
+        specifier: ^1.1.4
+        version: 1.1.4(@biomejs/biome@1.9.4)
       '@types/node':
         specifier: ^22.9.3
         version: 22.9.3
@@ -96,6 +90,9 @@ importers:
       globals:
         specifier: ^15.11.0
         version: 15.12.0
+      lefthook:
+        specifier: ^1.8.4
+        version: 1.8.4
       postcss:
         specifier: ^8.4.49
         version: 8.4.49

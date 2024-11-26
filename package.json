@@ -1,52 +1,27 @@
 {
   "name": "pizza-shop",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": ["typescript", "bun", "react", "vite"],
+  "author": {
+    "name": "Daniel Sousa @TutoDS",
+    "url": "https://github.com/tutods"
+  },
+  "license": "MIT",
   "packageManager": "pnpm@9.14.2",
+  "type": "module",
   "scripts": {
     "prepare": "lefthook install",
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "lint": "biome check --no-errors-on-unmatched .",
-    "lint:fix": "biome check --write --no-errors-on-unmatched .",
-    "lint:staged": "biome check --no-errors-on-unmatched --staged ."
-  },
-  "dependencies": {
-    "@hookform/resolvers": "^3.9.1",
-    "@radix-ui/react-dropdown-menu": "^2.1.2",
-    "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-separator": "^1.1.0",
-    "@radix-ui/react-slot": "^1.1.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.460.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-helmet-async": "^2.0.5",
-    "react-hook-form": "^7.53.2",
-    "react-router": "^7.0.1",
-    "sonner": "^1.7.0",
-    "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8"
+    "lint": "biome check .",
+    "lint:fix": "biome check --no-errors-on-unmatched --write .",
+    "lint:staged": "biome check --no-errors-on-unmatched --staged .",
+    "lint:ci": "biome ci --no-errors-on-unmatched ."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@tutods/biome-config": "^1.1.4",
-    "@types/node": "^22.9.3",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "autoprefixer": "^10.4.20",
-    "globals": "^15.11.0",
-    "lefthook": "^1.8.4",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
-    "typescript": "~5.6.2",
-    "vite": "^5.4.10"
+    "lefthook": "^1.8.4"
   }
 }
