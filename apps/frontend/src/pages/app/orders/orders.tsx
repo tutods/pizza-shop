@@ -1,8 +1,8 @@
-import { ArrowRight, Search, X } from 'lucide-react';
+import {} from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
-import { Button } from '~/components/ui/button';
-import { Input } from '~/components/ui/input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '~/components/ui/table';
+import { Table, TableBody, TableHead, TableHeader, TableRow } from '~/components/ui/table';
+import { OrderTableFilters } from '~/pages/app/orders/table-filters';
+import { OrderTableRow } from '~/pages/app/orders/table-row';
 
 function Orders() {
   return (
@@ -12,11 +12,7 @@ function Orders() {
         <h1 className="font-bold text-3xl tracking-tight">Pedidos</h1>
       </section>
       <section className="space-y-2.5">
-        <form className="flex items-center gap-2">
-          <span className="font-semibold text-sm">Filtros</span>
-          <Input id="clientName" placeholder="Nome do cliente" className="h-8 w-[320px]" />
-        </form>
-
+        <OrderTableFilters />
         <div className="rounded-md border">
           <Table>
             <TableHeader>
@@ -33,37 +29,8 @@ function Orders() {
             </TableHeader>
             <TableBody>
               {Array.from({ length: 10 }).map((_, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                <TableRow key={index}>
-                  <TableCell>
-                    <Button variant="outline" size="xs">
-                      <Search className="size-3" />
-                      <span className="sr-only">Detalhes do pedido</span>
-                    </Button>
-                  </TableCell>
-                  <TableCell className="font-medium font-mono text-xs">d5b7d2d1-162c-4eda-b1fe-f4617bb81449</TableCell>
-                  <TableCell className="text-muted-foreground">há 15 minutos</TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <span className="size-2 rounded-full bg-slate-400" />
-                      <span className="font-medium text-muted-foreground">Pendente</span>
-                    </div>
-                  </TableCell>
-                  <TableCell className="font-medium">Daniel Sousa</TableCell>
-                  <TableCell className="font-medium">R$ 149,90</TableCell>
-                  <TableCell>
-                    <Button size="xs" variant="outline">
-                      <ArrowRight className="mr-2 size-3" />
-                      Aprovar
-                    </Button>
-                  </TableCell>
-                  <TableCell>
-                    <Button size="xs" variant="ghost">
-                      <X className="mr-2 size-3" />
-                      Cancelar
-                    </Button>
-                  </TableCell>
-                </TableRow>
+                // biome-ignore lint/suspicious/noArrayIndexKey:
+                <OrderTableRow key={index} />
               ))}
             </TableBody>
           </Table>
