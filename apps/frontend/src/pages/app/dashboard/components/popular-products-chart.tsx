@@ -69,7 +69,6 @@ function PopularProductsChart() {
                   </text>
                 );
               }}
-              // className="fill-emerald-500"
             >
               {data.map((_, index) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey:
