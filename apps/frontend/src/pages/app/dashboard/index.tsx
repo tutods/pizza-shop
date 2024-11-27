@@ -4,6 +4,7 @@ import { DayOrdersAmountCard } from '~/pages/app/dashboard/components/day-orders
 import { MonthCanceledOrdersAmountCard } from '~/pages/app/dashboard/components/month-canceled-orders-amount-card';
 import { MonthOrdersAmountCard } from '~/pages/app/dashboard/components/month-orders-amount-card';
 import { MonthRevenueCard } from '~/pages/app/dashboard/components/month-revenue-card';
+import { RevenueChart } from '~/pages/app/dashboard/components/revenue-chart';
 
 function Dashboard() {
   return (
@@ -17,6 +18,10 @@ function Dashboard() {
           <MonthOrdersAmountCard />
           <DayOrdersAmountCard />
           <MonthCanceledOrdersAmountCard />
+        </section>
+
+        <section className="grid grid-cols-9 gap-4">
+          <RevenueChart />
         </section>
       </section>
     </>
