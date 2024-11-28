@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    container_name: "pizza.shop-db"
+    ports:
+      - 5433:5432
+    env_file:
+      - .env.docker
+    volumes:
+      - postgres_data:/bitnami/postgressql
+
+volumes:
+  postgres_data:
