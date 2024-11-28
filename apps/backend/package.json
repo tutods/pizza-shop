@@ -19,6 +19,7 @@
   "devDependencies": {
     "@types/pg": "^8.11.10",
     "bun-types": "latest",
+    "chalk": "^5.3.0",
     "drizzle-kit": "^0.28.1",
     "pg": "^8.13.1"
   },
