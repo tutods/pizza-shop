@@ -3,7 +3,7 @@ import { pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
 export const UserRoleEnum = pgEnum('user_role', ['manager', 'customer']);
 
-const user = pgTable('users', {
+const users = pgTable('users', {
   id: text('id')
     .$defaultFn(() => createId())
     .primaryKey(),
@@ -15,4 +15,4 @@ const user = pgTable('users', {
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
 
-export { user };
+export { users };

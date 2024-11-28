@@ -15,6 +15,20 @@
       "when": 1732803445681,
       "tag": "0001_old_sumo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1732803614947,
+      "tag": "0002_free_blacklash",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1732803839928,
+      "tag": "0003_familiar_bastion",
+      "breakpoints": true
     }
   ]
 }
