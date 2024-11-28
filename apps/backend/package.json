@@ -13,14 +13,13 @@
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
     "drizzle-orm": "^0.36.4",
-    "elysia": "latest",
-    "pg": "^8.13.1"
+    "elysia": "latest"
   },
   "devDependencies": {
     "@types/pg": "^8.11.10",
     "bun-types": "latest",
-    "drizzle-kit": "^0.28.1",
-    "tsx": "^4.19.2"
+    "pg": "^8.13.1",
+    "drizzle-kit": "^0.28.1"
   },
   "module": "src/index.js"
 }
