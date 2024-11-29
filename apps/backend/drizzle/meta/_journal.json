@@ -29,6 +29,13 @@
       "when": 1732803839928,
       "tag": "0003_familiar_bastion",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1732859315973,
+      "tag": "0004_daily_living_tribunal",
+      "breakpoints": true
     }
   ]
 }
