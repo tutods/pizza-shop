@@ -13,9 +13,9 @@
     "seed": "bun src/db/seed.ts"
   },
   "dependencies": {
-    "@elysiajs/cookie": "^0.8.0",
     "@elysiajs/jwt": "^1.1.1",
     "@paralleldrive/cuid2": "^2.2.2",
+    "dayjs": "^1.11.13",
     "drizzle-orm": "^0.37.0",
     "elysia": "latest",
     "pg": "^8.13.1",

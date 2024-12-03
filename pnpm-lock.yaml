@@ -26,15 +26,15 @@ importers:
 
   apps/backend:
     dependencies:
-      '@elysiajs/cookie':
-        specifier: ^0.8.0
-        version: 0.8.0(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))
       '@elysiajs/jwt':
         specifier: ^1.1.1
         version: 1.1.1(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       drizzle-orm:
         specifier: ^0.37.0
         version: 0.37.0(@types/pg@8.11.10)(@types/react@18.3.12)(bun-types@1.1.38)(pg@8.13.1)(postgres@3.4.5)(react@18.3.1)
@@ -303,11 +303,6 @@ packages:
 
   '@drizzle-team/brocli@0.10.2':
     resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
-
-  '@elysiajs/cookie@0.8.0':
-    resolution: {integrity: sha512-CUtDwdYEoN0BcQ3SgZrB4x5nrbM4ih0sMhMuKKdMlEvqLtmRQDfq9KBCrMJW6L/Q0tPH0JLRqwjEbVb6rJufCw==}
-    peerDependencies:
-      elysia: '>= 0.8.0'
 
   '@elysiajs/jwt@1.1.1':
     resolution: {integrity: sha512-DpTFeTstzltmQdorIU7b1VlaAZLOhV18rF4aC0mkxbJTPmRLUwjf549osnGKuXHoJLRgeSZYb9POKD6hm7NwHw==}
@@ -1324,12 +1319,6 @@ packages:
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
 
-  '@types/cookie-signature@1.1.2':
-    resolution: {integrity: sha512-2OhrZV2LVnUAXklUFwuYUTokalh/dUb8rqt70OW6ByMSxYpauPZ+kfNLknX3aJyjY5iu8i3cUyoLZP9Fn37tTg==}
-
-  '@types/cookie@0.5.4':
-    resolution: {integrity: sha512-7z/eR6O859gyWIAjuvBWFzNURmf2oPBmJlfVWkwehU5nzIyjwBsTh7WMmEEV4JFnHuQ3ex4oyTvfKzcyJVDBNA==}
-
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
@@ -1521,14 +1510,6 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  cookie-signature@1.2.2:
-    resolution: {integrity: sha512-D76uU73ulSXrD1UXF4KE2TMxVVwhsnCgfAyTg9k8P6KGZjlXKrOLe4dJQKI3Bxi5wjesZoFXJWElNWBjPZMbhg==}
-    engines: {node: '>=6.6.0'}
-
-  cookie@0.5.0:
-    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
-    engines: {node: '>= 0.6'}
-
   cookie@1.0.2:
     resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
     engines: {node: '>=18'}
@@ -1609,6 +1590,9 @@ packages:
   dargs@8.1.0:
     resolution: {integrity: sha512-wAV9QHOsNbwnWdNW2FYvE1P56wtgSbM+3SZcdGiWQILwVjACCXDCI3Ai8QlCjMDB8YK5zySiXZYBiwGmNY3lnw==}
     engines: {node: '>=12'}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debug@4.3.7:
     resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
@@ -2843,14 +2827,6 @@ snapshots:
 
   '@drizzle-team/brocli@0.10.2': {}
 
-  '@elysiajs/cookie@0.8.0(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))':
-    dependencies:
-      '@types/cookie': 0.5.4
-      '@types/cookie-signature': 1.1.2
-      cookie: 0.5.0
-      cookie-signature: 1.2.2
-      elysia: 1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2)
-
   '@elysiajs/jwt@1.1.1(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))':
     dependencies:
       elysia: 1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2)
@@ -3583,12 +3559,6 @@ snapshots:
     dependencies:
       '@types/node': 22.10.1
 
-  '@types/cookie-signature@1.1.2':
-    dependencies:
-      '@types/node': 22.10.1
-
-  '@types/cookie@0.5.4': {}
-
   '@types/cookie@0.6.0': {}
 
   '@types/d3-array@3.2.1': {}
@@ -3788,10 +3758,6 @@ snapshots:
       meow: 12.1.1
       split2: 4.2.0
 
-  cookie-signature@1.2.2: {}
-
-  cookie@0.5.0: {}
-
   cookie@1.0.2: {}
 
   cosmiconfig-typescript-loader@5.1.0(@types/node@22.10.1)(cosmiconfig@9.0.0(typescript@5.7.2))(typescript@5.7.2):
@@ -3859,6 +3825,8 @@ snapshots:
   d3-timer@3.0.1: {}
 
   dargs@8.1.0: {}
+
+  dayjs@1.11.13: {}
 
   debug@4.3.7:
     dependencies:
