@@ -23,6 +23,8 @@ dist/
 *.env.local
 *.env.*
 .env.docker
+!.env.docker.example
+!.env.example
 .env
 
 # VSCode
