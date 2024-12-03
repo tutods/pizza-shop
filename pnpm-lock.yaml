@@ -26,6 +26,12 @@ importers:
 
   apps/backend:
     dependencies:
+      '@elysiajs/cookie':
+        specifier: ^0.8.0
+        version: 0.8.0(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))
+      '@elysiajs/jwt':
+        specifier: ^1.1.1
+        version: 1.1.1(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
@@ -109,8 +115,8 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       recharts:
-        specifier: ^2.13.3
-        version: 2.13.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^2.14.1
+        version: 2.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sonner:
         specifier: ^1.7.0
         version: 1.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -135,7 +141,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
-        version: 3.7.2(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1))
+        version: 3.7.2(vite@6.0.2(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -152,8 +158,8 @@ importers:
         specifier: ~5.7.2
         version: 5.7.2
       vite:
-        specifier: ^6.0.1
-        version: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1)
+        specifier: ^6.0.2
+        version: 6.0.2(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1)
 
 packages:
 
@@ -297,6 +303,16 @@ packages:
 
   '@drizzle-team/brocli@0.10.2':
     resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
+
+  '@elysiajs/cookie@0.8.0':
+    resolution: {integrity: sha512-CUtDwdYEoN0BcQ3SgZrB4x5nrbM4ih0sMhMuKKdMlEvqLtmRQDfq9KBCrMJW6L/Q0tPH0JLRqwjEbVb6rJufCw==}
+    peerDependencies:
+      elysia: '>= 0.8.0'
+
+  '@elysiajs/jwt@1.1.1':
+    resolution: {integrity: sha512-DpTFeTstzltmQdorIU7b1VlaAZLOhV18rF4aC0mkxbJTPmRLUwjf549osnGKuXHoJLRgeSZYb9POKD6hm7NwHw==}
+    peerDependencies:
+      elysia: '>= 1.1.0'
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
@@ -1308,6 +1324,12 @@ packages:
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
 
+  '@types/cookie-signature@1.1.2':
+    resolution: {integrity: sha512-2OhrZV2LVnUAXklUFwuYUTokalh/dUb8rqt70OW6ByMSxYpauPZ+kfNLknX3aJyjY5iu8i3cUyoLZP9Fn37tTg==}
+
+  '@types/cookie@0.5.4':
+    resolution: {integrity: sha512-7z/eR6O859gyWIAjuvBWFzNURmf2oPBmJlfVWkwehU5nzIyjwBsTh7WMmEEV4JFnHuQ3ex4oyTvfKzcyJVDBNA==}
+
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
@@ -1498,6 +1520,14 @@ packages:
     resolution: {integrity: sha512-ZPMl0ZJbw74iS9LuX9YIAiW8pfM5p3yh2o/NbXHbkFuZzY5jvdi5jFycEOkmBW5H5I7nA+D6f3UcsCLP2vvSEA==}
     engines: {node: '>=16'}
     hasBin: true
+
+  cookie-signature@1.2.2:
+    resolution: {integrity: sha512-D76uU73ulSXrD1UXF4KE2TMxVVwhsnCgfAyTg9k8P6KGZjlXKrOLe4dJQKI3Bxi5wjesZoFXJWElNWBjPZMbhg==}
+    engines: {node: '>=6.6.0'}
+
+  cookie@0.5.0:
+    resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
+    engines: {node: '>= 0.6'}
 
   cookie@1.0.2:
     resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
@@ -1907,6 +1937,9 @@ packages:
   jiti@1.21.6:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
+
+  jose@4.15.9:
+    resolution: {integrity: sha512-1vUQX+IdDMVPj4k8kOxgUqlcK518yluMuGZwqlr44FS1ppZB/5GWh4rZG89erpOBOJjU/OBsnCVFfapsRz6nEA==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -2360,8 +2393,8 @@ packages:
   recharts-scale@0.4.5:
     resolution: {integrity: sha512-kivNFO+0OcUNu7jQquLXAxz1FIwZj8nrj+YkOKc5694NbjCvcT6aSZiIzNzd2Kul4o4rTto8QVR9lMNtxD4G1w==}
 
-  recharts@2.13.3:
-    resolution: {integrity: sha512-YDZ9dOfK9t3ycwxgKbrnDlRC4BHdjlY73fet3a0C1+qGMjXVZe6+VXmpOIIhzkje5MMEL8AN4hLIe4AMskBzlA==}
+  recharts@2.14.1:
+    resolution: {integrity: sha512-xtWulflkA+/xu4/QClBdtZYN30dbvTHjxjkh5XTMrH/CQ3WGDDPHHa/LLKCbgoqz0z3UaSH2/blV1i6VNMeh1g==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -2570,8 +2603,8 @@ packages:
   victory-vendor@36.9.2:
     resolution: {integrity: sha512-PnpQQMuxlwYdocC8fIJqVXvkeViHYzotI+NJrCuav0ZYFoq912ZHBk3mCeuj+5/VpodOjPe1z0Fk2ihgzlXqjQ==}
 
-  vite@6.0.1:
-    resolution: {integrity: sha512-Ldn6gorLGr4mCdFnmeAOLweJxZ34HjKnDm4HGo6P66IEqTxQb36VEdFJQENKxWjupNfoIjvRUnswjn1hpYEpjQ==}
+  vite@6.0.2:
+    resolution: {integrity: sha512-XdQ+VsY2tJpBsKGs0wf3U/+azx8BBpYRHFAyKm5VeEZNOJZRB63q7Sc8Iup3k0TrN3KO6QgyzFf+opSbfY1y0g==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -2813,6 +2846,19 @@ snapshots:
       chalk: 5.3.0
 
   '@drizzle-team/brocli@0.10.2': {}
+
+  '@elysiajs/cookie@0.8.0(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))':
+    dependencies:
+      '@types/cookie': 0.5.4
+      '@types/cookie-signature': 1.1.2
+      cookie: 0.5.0
+      cookie-signature: 1.2.2
+      elysia: 1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2)
+
+  '@elysiajs/jwt@1.1.1(elysia@1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2))':
+    dependencies:
+      elysia: 1.1.25(@sinclair/typebox@0.34.9)(typescript@5.7.2)
+      jose: 4.15.9
 
   '@esbuild-kit/core-utils@3.3.2':
     dependencies:
@@ -3541,6 +3587,12 @@ snapshots:
     dependencies:
       '@types/node': 22.10.1
 
+  '@types/cookie-signature@1.1.2':
+    dependencies:
+      '@types/node': 22.10.1
+
+  '@types/cookie@0.5.4': {}
+
   '@types/cookie@0.6.0': {}
 
   '@types/d3-array@3.2.1': {}
@@ -3598,10 +3650,10 @@ snapshots:
     dependencies:
       '@types/node': 22.10.1
 
-  '@vitejs/plugin-react-swc@3.7.2(vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1))':
+  '@vitejs/plugin-react-swc@3.7.2(vite@6.0.2(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1))':
     dependencies:
       '@swc/core': 1.9.3
-      vite: 6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1)
+      vite: 6.0.2(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -3739,6 +3791,10 @@ snapshots:
       is-text-path: 2.0.0
       meow: 12.1.1
       split2: 4.2.0
+
+  cookie-signature@1.2.2: {}
+
+  cookie@0.5.0: {}
 
   cookie@1.0.2: {}
 
@@ -4091,6 +4147,8 @@ snapshots:
       '@pkgjs/parseargs': 0.11.0
 
   jiti@1.21.6: {}
+
+  jose@4.15.9: {}
 
   js-tokens@4.0.0: {}
 
@@ -4476,7 +4534,7 @@ snapshots:
     dependencies:
       decimal.js-light: 2.5.1
 
-  recharts@2.13.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  recharts@2.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       clsx: 2.1.1
       eventemitter3: 4.0.7
@@ -4710,7 +4768,7 @@ snapshots:
       d3-time: 3.1.0
       d3-timer: 3.0.1
 
-  vite@6.0.1(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1):
+  vite@6.0.2(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
