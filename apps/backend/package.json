@@ -26,7 +26,7 @@
     "@types/pg": "^8.11.10",
     "bun-types": "latest",
     "chalk": "^5.3.0",
-    "drizzle-kit": "^0.28.1",
+    "drizzle-kit": "^0.29.1",
     "postgres": "^3.4.5"
   },
   "module": "src/index.js"
