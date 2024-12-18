@@ -37,7 +37,7 @@ importers:
         version: 1.11.13
       drizzle-orm:
         specifier: ^0.38.0
-        version: 0.38.0(@types/pg@8.11.10)(@types/react@18.3.14)(bun-types@1.1.38)(pg@8.13.1)(postgres@3.4.5)(react@18.3.1)
+        version: 0.38.0(@types/pg@8.11.10)(@types/react@18.3.14)(bun-types@1.1.40)(pg@8.13.1)(postgres@3.4.5)(react@18.3.1)
       elysia:
         specifier: latest
         version: 1.1.26(@sinclair/typebox@0.34.11)(typescript@5.7.2)
@@ -45,8 +45,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
       '@faker-js/faker':
         specifier: ^9.3.0
@@ -56,7 +56,7 @@ importers:
         version: 8.11.10
       bun-types:
         specifier: latest
-        version: 1.1.38
+        version: 1.1.40
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
@@ -127,8 +127,8 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.16)
       zod:
-        specifier: ^3.23.8
-        version: 3.23.8
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
       '@types/node':
         specifier: ^22.10.1
@@ -1457,8 +1457,8 @@ packages:
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
-  bun-types@1.1.38:
-    resolution: {integrity: sha512-iglB2t9z1Hc6DIuwwscwWj/csx22QlCZ96QbcqQfiy1wmuZ38srQLI/fDVkFHAo2+KL7aJZGVWF+nAWrR6Njig==}
+  bun-types@1.1.40:
+    resolution: {integrity: sha512-yVXBZ1/ATZJD5FvfhDydw45ED8DlmTflumPKj56p5/GLjYiHBZkirzad6MU6MSZKgZ4o1/Ks5lL/Jgg/fRXBSQ==}
 
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -2668,8 +2668,8 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+  zod@3.24.1:
+    resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
 snapshots:
 
@@ -3703,7 +3703,7 @@ snapshots:
 
   buffer-from@1.1.2: {}
 
-  bun-types@1.1.38:
+  bun-types@1.1.40:
     dependencies:
       '@types/node': 20.12.14
       '@types/ws': 8.5.13
@@ -3868,11 +3868,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.0(@types/pg@8.11.10)(@types/react@18.3.14)(bun-types@1.1.38)(pg@8.13.1)(postgres@3.4.5)(react@18.3.1):
+  drizzle-orm@0.38.0(@types/pg@8.11.10)(@types/react@18.3.14)(bun-types@1.1.40)(pg@8.13.1)(postgres@3.4.5)(react@18.3.1):
     optionalDependencies:
       '@types/pg': 8.11.10
       '@types/react': 18.3.14
-      bun-types: 1.1.38
+      bun-types: 1.1.40
       pg: 8.13.1
       postgres: 3.4.5
       react: 18.3.1
@@ -4788,4 +4788,4 @@ snapshots:
 
   yocto-queue@1.1.1: {}
 
-  zod@3.23.8: {}
+  zod@3.24.1: {}
