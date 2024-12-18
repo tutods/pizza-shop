@@ -12,7 +12,7 @@ importers:
         specifier: ^1.9.4
         version: 1.9.4
       '@commitlint/cli':
-        specifier: ^19.6.0
+        specifier: ^19.6.1
         version: 19.6.1(@types/node@22.10.2)(typescript@5.7.2)
       '@commitlint/config-conventional':
         specifier: ^19.6.0
