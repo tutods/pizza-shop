@@ -1,15 +1,17 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
 import { toast } from 'sonner';
 import { z } from 'zod';
+import { registerRestaurant } from '~/api/register-restaurant.ts';
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 
 const signUpForm = z.object({
-  restaurant: z.string({
+  restaurantName: z.string({
     message: '',
   }),
   managerName: z.string({
@@ -32,25 +34,28 @@ function SignUp() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { isSubmitting },
   } = useForm<SignUpForm>({
     resolver: zodResolver(signUpForm),
   });
-
-  async function handleSignIn(data: SignUpForm) {
-    try {
-      console.info(data);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
+  const { mutateAsync } = useMutation<void, Error, SignUpForm>({
+    mutationFn: registerRestaurant,
+    onSuccess: () => {
       toast.success('Restaurante criado com sucesso!', {
         action: {
           label: 'Login',
-          onClick: () => navigate('/sign-in'),
+          onClick: () => navigate(`/sign-in?email=${getValues().email}`),
         },
       });
-    } catch {
+    },
+    onError: () => {
       toast.error('Erro ao criar restaurante.');
-    }
+    },
+  });
+
+  async function handleSignIn(data: SignUpForm) {
+    await mutateAsync(data);
   }
 
   return (
@@ -69,12 +74,12 @@ function SignUp() {
 
           <form onSubmit={handleSubmit(handleSignIn)} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="restaurant">Nome do estabelecimento</Label>
+              <Label htmlFor="restaurantName">Nome do estabelecimento</Label>
               <Input
                 placeholder="Insira o nome do seu estabelecimento"
-                id="restaurant"
+                id="restaurantName"
                 type="text"
-                {...register('restaurant')}
+                {...register('restaurantName')}
               />
             </div>
             <div className="space-y-2">
@@ -86,7 +91,7 @@ function SignUp() {
               <Input placeholder="Insira o seu email" id="email" type="email" {...register('email')} />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="phone">O seu contact</Label>
+              <Label htmlFor="phone">O seu contacto</Label>
               <Input placeholder="Insira o seu contact" id="phone" type="tel" {...register('phone')} />
             </div>
             <Button disabled={isSubmitting} className="w-full" type="submit">
