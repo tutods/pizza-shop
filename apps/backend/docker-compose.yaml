@@ -7,7 +7,7 @@ services:
     env_file:
       - .env.docker
     volumes:
-      - postgres_data:/bitnami/postgressql
+      - postgres_data:/bitnami/postgresql
 
 volumes:
   postgres_data:
