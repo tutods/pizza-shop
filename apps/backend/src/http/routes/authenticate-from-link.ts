@@ -7,7 +7,7 @@ import { auth } from '~/http/auth.ts';
 
 const authenticateFromLink = new Elysia().use(auth).get(
   '/auth-links/authenticate',
-  async ({ query, cookie: { auth }, jwt, set }) => {
+  async ({ query, set, signUser }) => {
     const { code, redirect } = query;
 
     const authLinkFromCode = await db.query.authLinks.findFirst({
@@ -30,17 +30,11 @@ const authenticateFromLink = new Elysia().use(auth).get(
         return eq(fields.managerId, authLinkFromCode.userId);
       },
     });
-    const token = await jwt.sign({
+
+    await signUser({
       sub: authLinkFromCode.userId,
       restaurantId: managedRestaurant?.id,
     });
-
-    auth.value = token;
-    auth.httpOnly = true;
-    // The token expires after 7 days
-    auth.maxAge = 60 * 60 * 24 * 7;
-    // All routes can use this token
-    auth.path = '/';
 
     /**
      * Delete the link from the database to prevent
