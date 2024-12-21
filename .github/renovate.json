@@ -5,7 +5,6 @@
   "prCreation": "immediate",
   "updateInternalDeps": true,
   "rangeStrategy": "bump",
-  "automerge": true,
   "automergeType": "pr",
   "timezone": "Europe/Lisbon",
   "schedule": ["after 3pm", "before 5am"],
