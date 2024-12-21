@@ -5,6 +5,7 @@
   "prCreation": "immediate",
   "updateInternalDeps": true,
   "rangeStrategy": "bump",
+  "automerge": true,
   "automergeType": "pr",
   "timezone": "Europe/Lisbon",
   "schedule": ["after 3pm", "before 5am"],
@@ -14,14 +15,18 @@
   },
   "packageRules": [
     {
+      "extends": ["monorepo:react"],
+      "groupName": "react monorepo",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    },
+    {
       "description": "Automerge non-major updates",
       "matchUpdateTypes": ["minor", "patch", "lockFileMaintenance"],
       "automerge": true
     },
     {
       "description": "Open major updates",
-      "matchUpdateTypes": ["major", "bump"],
-      "automerge": false
+      "matchUpdateTypes": ["major", "bump"]
     }
   ],
   "hostRules": [
