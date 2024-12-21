@@ -151,12 +151,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
-<<<<<<< HEAD
-      globals:
-        specifier: ^15.13.0
-        version: 15.14.0
-=======
->>>>>>> 7bafde5 (chore: remove globals dep)
       postcss:
         specifier: ^8.4.49
         version: 8.4.49
@@ -1893,13 +1887,6 @@ packages:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
     engines: {node: '>=18'}
 
-<<<<<<< HEAD
-  globals@15.14.0:
-    resolution: {integrity: sha512-OkToC372DtlQeje9/zHIo5CT8lRP/FUgEOKBEhU4e0abL7J7CD24fD9ohiLN5hagG/kWCYj4K5oaxxtj2Z0Dig==}
-    engines: {node: '>=18'}
-
-=======
->>>>>>> 7bafde5 (chore: remove globals dep)
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
@@ -4144,11 +4131,6 @@ snapshots:
     dependencies:
       ini: 4.1.1
 
-<<<<<<< HEAD
-  globals@15.14.0: {}
-
-=======
->>>>>>> 7bafde5 (chore: remove globals dep)
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
