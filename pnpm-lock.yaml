@@ -27,8 +27,8 @@ importers:
   apps/backend:
     dependencies:
       '@elysiajs/jwt':
-        specifier: ^1.1.1
-        version: 1.1.1(elysia@1.1.26(@sinclair/typebox@0.34.13)(typescript@5.7.2))
+        specifier: ^1.2.0
+        version: 1.2.0(elysia@1.2.0(@sinclair/typebox@0.34.13)(typescript@5.7.2))
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
         version: 2.2.2
@@ -40,7 +40,7 @@ importers:
         version: 0.38.2(@types/pg@8.11.10)(@types/react@19.0.2)(bun-types@1.1.42)(pg@8.13.1)(postgres@3.4.5)(react@19.0.0)
       elysia:
         specifier: latest
-        version: 1.1.26(@sinclair/typebox@0.34.13)(typescript@5.7.2)
+        version: 1.2.0(@sinclair/typebox@0.34.13)(typescript@5.7.2)
       pg:
         specifier: ^8.13.1
         version: 8.13.1
@@ -307,10 +307,10 @@ packages:
   '@drizzle-team/brocli@0.10.2':
     resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
 
-  '@elysiajs/jwt@1.1.1':
-    resolution: {integrity: sha512-DpTFeTstzltmQdorIU7b1VlaAZLOhV18rF4aC0mkxbJTPmRLUwjf549osnGKuXHoJLRgeSZYb9POKD6hm7NwHw==}
+  '@elysiajs/jwt@1.2.0':
+    resolution: {integrity: sha512-5iMoZucIKNAqPKW3n6RBIyCnDWG3kOcqA4WZKtqEff+IjV6AN3dlMSE2XsS0xjIvusLD0UBXS8cxQ9NwIcj6ew==}
     peerDependencies:
-      elysia: '>= 1.1.0'
+      elysia: '>= 1.2.0'
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
@@ -1744,10 +1744,10 @@ packages:
   electron-to-chromium@1.5.75:
     resolution: {integrity: sha512-Lf3++DumRE/QmweGjU+ZcKqQ+3bKkU/qjaKYhIJKEOhgIO9Xs6IiAQFkfFoj+RhgDk4LUeNsLo6plExHqSyu6Q==}
 
-  elysia@1.1.26:
-    resolution: {integrity: sha512-wtHa46hP4cMzzgq+WlqVMz9th56FlEdS1UDJgtAJD3rQkjovidySKxFfdKEr16pulaleBo5OC1BQL35XhGaW0Q==}
+  elysia@1.2.0:
+    resolution: {integrity: sha512-1ji2D1dqerj1Fq+Q6jzBcawKSwoqWNHHItZmXq6iB73Qs8apYO+jy43RIe4wwuHZKn2ILIFTgomlVUBUcNixTQ==}
     peerDependencies:
-      '@sinclair/typebox': '>= 0.32.0'
+      '@sinclair/typebox': '>= 0.34.0'
       openapi-types: '>= 12.0.0'
       typescript: '>= 5.0.0'
     peerDependenciesMeta:
@@ -2081,6 +2081,9 @@ packages:
     resolution: {integrity: sha512-28vvUnnKQ/dBwiCQtwJw7QauYnE7yd2Cyp4tTTJpvglX4EMpbflcdBgrgToX2j71B3YvugK/NH3BGUk+E/p/Fw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  memoirist@0.2.0:
+    resolution: {integrity: sha512-DA1V11OWsKmYjgYHfT1luus0FtTjUbILfI9s5M+ckK29tBLON6GDhH5GwxDz7E1ou4Bdzm9vhbeCaRAWxwG+0g==}
 
   meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
@@ -2872,9 +2875,9 @@ snapshots:
 
   '@drizzle-team/brocli@0.10.2': {}
 
-  '@elysiajs/jwt@1.1.1(elysia@1.1.26(@sinclair/typebox@0.34.13)(typescript@5.7.2))':
+  '@elysiajs/jwt@1.2.0(elysia@1.2.0(@sinclair/typebox@0.34.13)(typescript@5.7.2))':
     dependencies:
-      elysia: 1.1.26(@sinclair/typebox@0.34.13)(typescript@5.7.2)
+      elysia: 1.2.0(@sinclair/typebox@0.34.13)(typescript@5.7.2)
       jose: 4.15.9
 
   '@esbuild-kit/core-utils@3.3.2':
@@ -3933,11 +3936,12 @@ snapshots:
 
   electron-to-chromium@1.5.75: {}
 
-  elysia@1.1.26(@sinclair/typebox@0.34.13)(typescript@5.7.2):
+  elysia@1.2.0(@sinclair/typebox@0.34.13)(typescript@5.7.2):
     dependencies:
       '@sinclair/typebox': 0.34.13
       cookie: 1.0.2
       fast-decode-uri-component: 1.0.1
+      memoirist: 0.2.0
     optionalDependencies:
       typescript: 5.7.2
 
@@ -4276,6 +4280,8 @@ snapshots:
   lucide-react@0.469.0(react@19.0.0):
     dependencies:
       react: 19.0.0
+
+  memoirist@0.2.0: {}
 
   meow@12.1.1: {}
 
