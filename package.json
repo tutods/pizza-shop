@@ -8,7 +8,7 @@
     "url": "https://github.com/tutods"
   },
   "license": "MIT",
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@9.15.5",
   "type": "module",
   "scripts": {
     "prepare": "lefthook install",
