@@ -8,8 +8,8 @@
     "url": "https://github.com/tutods"
   },
   "license": "MIT",
-  "packageManager": "pnpm@9.15.1",
   "type": "module",
+  "packageManager": "pnpm@10.3.0",
   "scripts": {
     "prepare": "lefthook install",
     "lint": "biome check .",
