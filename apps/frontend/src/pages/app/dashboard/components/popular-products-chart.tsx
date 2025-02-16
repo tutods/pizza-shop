@@ -70,7 +70,7 @@ export function PopularProductsChart() {
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie
-              paddingAngle={10}
+              paddingAngle={12}
               data={chartData}
               dataKey="amount"
               nameKey="product"
