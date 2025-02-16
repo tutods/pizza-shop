@@ -27,7 +27,7 @@ importers:
   apps/backend:
     dependencies:
       '@elysiajs/jwt':
-        specifier: ^1.1.1
+        specifier: ^1.2.0
         version: 1.2.0(elysia@1.2.12(@sinclair/typebox@0.34.25)(typescript@5.7.3))
       '@paralleldrive/cuid2':
         specifier: ^2.2.2
@@ -36,23 +36,23 @@ importers:
         specifier: ^1.11.13
         version: 1.11.13
       drizzle-orm:
-        specifier: ^0.38.2
-        version: 0.38.4(@types/pg@8.11.11)(@types/react@19.0.9)(bun-types@1.2.2)(pg@8.13.3)(postgres@3.4.5)(react@19.0.0)
+        specifier: ^0.39.3
+        version: 0.39.3(@types/pg@8.11.11)(bun-types@1.2.2)(pg@8.13.3)(postgres@3.4.5)
       elysia:
         specifier: latest
         version: 1.2.12(@sinclair/typebox@0.34.25)(typescript@5.7.3)
       pg:
-        specifier: ^8.13.1
+        specifier: ^8.13.3
         version: 8.13.3
       zod:
-        specifier: ^3.24.1
+        specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
       '@faker-js/faker':
-        specifier: ^9.3.0
+        specifier: ^9.5.0
         version: 9.5.0
       '@types/pg':
-        specifier: ^8.11.10
+        specifier: ^8.11.11
         version: 8.11.11
       bun-types:
         specifier: latest
@@ -121,7 +121,7 @@ importers:
         specifier: ^1.7.4
         version: 1.7.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       zod:
-        specifier: ^3.24.1
+        specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
       '@rsbuild/core':
@@ -2009,8 +2009,8 @@ packages:
     resolution: {integrity: sha512-B2oJN5UkvwwNHscPWXDG5KqAixu7AUzZ3qbe++KU9SsQ+cZWR4DXEPYcvWplyFAno0dhRJECNEhNxiDmFaPGyQ==}
     hasBin: true
 
-  drizzle-orm@0.38.4:
-    resolution: {integrity: sha512-s7/5BpLKO+WJRHspvpqTydxFob8i1vo2rEx4pY6TGY7QSMuUfWUuzaY0DIpXCkgHOo37BaFC+SJQb99dDUXT3Q==}
+  drizzle-orm@0.39.3:
+    resolution: {integrity: sha512-EZ8ZpYvDIvKU9C56JYLOmUskazhad+uXZCTCRN4OnRMsL+xAJ05dv1eCpAG5xzhsm1hqiuC5kAZUCS924u2DTw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -2025,7 +2025,6 @@ packages:
       '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
-      '@types/react': '>=18'
       '@types/sql.js': '*'
       '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
@@ -2038,7 +2037,6 @@ packages:
       pg: '>=8'
       postgres: '>=3'
       prisma: '*'
-      react: '>=18'
       sql.js: '>=1'
       sqlite3: '>=5'
     peerDependenciesMeta:
@@ -2068,8 +2066,6 @@ packages:
         optional: true
       '@types/pg':
         optional: true
-      '@types/react':
-        optional: true
       '@types/sql.js':
         optional: true
       '@vercel/postgres':
@@ -2093,8 +2089,6 @@ packages:
       postgres:
         optional: true
       prisma:
-        optional: true
-      react:
         optional: true
       sql.js:
         optional: true
@@ -5184,14 +5178,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.4(@types/pg@8.11.11)(@types/react@19.0.9)(bun-types@1.2.2)(pg@8.13.3)(postgres@3.4.5)(react@19.0.0):
+  drizzle-orm@0.39.3(@types/pg@8.11.11)(bun-types@1.2.2)(pg@8.13.3)(postgres@3.4.5):
     optionalDependencies:
       '@types/pg': 8.11.11
-      '@types/react': 19.0.9
       bun-types: 1.2.2
       pg: 8.13.3
       postgres: 3.4.5
-      react: 19.0.0
 
   dunder-proto@1.0.1:
     dependencies:
