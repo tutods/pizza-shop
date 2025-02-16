@@ -66,7 +66,7 @@ export function PopularProductsChart() {
         <BarChart className="size-4" />
       </CardHeader>
       <CardContent className="flex-1 pb-0">
-        <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
+        <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px] w-full">
           <PieChart>
             <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie
@@ -77,8 +77,30 @@ export function PopularProductsChart() {
               cx="50%"
               cy="50%"
               outerRadius={86}
-              innerRadius={64}
-              strokeWidth={8}
+              innerRadius={72}
+              strokeWidth={4}
+              labelLine={false}
+              label={({ cx, cy, midAngle, innerRadius, outerRadius, value, index }) => {
+                const radian = Math.PI / 180;
+                const radius = 12 + innerRadius + (outerRadius - innerRadius);
+                const x = cx + radius * Math.cos(-midAngle * radian);
+                const y = cy + radius * Math.sin(-midAngle * radian);
+
+                const product = chartData[index].product;
+                const label = chartConfig[product as keyof typeof chartConfig].label;
+
+                return (
+                  <text
+                    x={x}
+                    y={y}
+                    className="fill-muted-foreground text-xs"
+                    textAnchor={x > cx ? 'start' : 'end'}
+                    dominantBaseline="central"
+                  >
+                    {label.length > 12 ? label.substring(0, 12).concat('...') : label} ({value})
+                  </text>
+                );
+              }}
             />
           </PieChart>
         </ChartContainer>
