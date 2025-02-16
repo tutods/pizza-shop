@@ -3,6 +3,7 @@ import { Building, ChevronDown, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { getManagedRestaurant } from '~/api/get-managed-restaurant';
 import { getProfile } from '~/api/get-profile';
+import { signOut } from '~/api/sign-out';
 import { Button } from '~/components/ui/button';
 import { Dialog, DialogTrigger } from '~/components/ui/dialog';
 import {
@@ -13,7 +14,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '~/components/ui/dropdown-menu';
-import { signOut } from '~/sign-out';
 import { StoreProfileDialog } from './store-profile-dialog';
 import { Skeleton } from './ui/skeleton';
 

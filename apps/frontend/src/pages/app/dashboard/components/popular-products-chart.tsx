@@ -1,45 +1,77 @@
 import { BarChart } from 'lucide-react';
-import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
-import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
-import { cn } from '~/lib/utils';
+import { Pie, PieChart } from 'recharts';
 
-const data = [
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
+import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '~/components/ui/chart';
+
+const chartData = [
   {
-    product: 'Pepperoni',
+    product: 'pepperoni',
     amount: 40,
+    fill: 'var(--color-pepperoni)',
   },
   {
-    product: 'Calabresa',
+    product: 'calabresa',
     amount: 30,
+    fill: 'var(--color-calabresa)',
   },
   {
-    product: 'Havaiana',
+    product: 'havaiana',
     amount: 50,
+    fill: 'var(--color-havaiana)',
   },
   {
-    product: 'Margherita',
+    product: 'margherita',
     amount: 16,
+    fill: 'var(--color-margherita)',
   },
   {
-    product: 'Vegetariana',
+    product: 'vegetariana',
     amount: 26,
+    fill: 'var(--color-vegetariana)',
   },
 ];
 
-const colors = ['fill-sky-500', 'fill-amber-500', 'fill-violet-500', 'fill-emerald-500', 'fill-rose-500'];
+const chartConfig = {
+  amount: {
+    label: 'Quantidade',
+  },
+  pepperoni: {
+    label: 'Pepperoni',
+    color: 'hsl(var(--chart-1))',
+  },
+  calabresa: {
+    label: 'Calabresa',
+    color: 'hsl(var(--chart-2))',
+  },
+  havaiana: {
+    label: 'Havaiana',
+    color: 'hsl(var(--chart-3))',
+  },
+  margherita: {
+    label: 'Margherita',
+    color: 'hsl(var(--chart-4))',
+  },
+  vegetariana: {
+    label: 'Vegetariana',
+    color: 'hsl(var(--chart-5))',
+  },
+} satisfies ChartConfig;
 
-function PopularProductsChart() {
+export function PopularProductsChart() {
   return (
     <Card className="col-span-3">
       <CardHeader className="flex-row items-center justify-between pb-8">
         <CardTitle className="font-medium text-base">Produtos mais populares</CardTitle>
         <BarChart className="size-4" />
       </CardHeader>
-      <CardContent>
-        <ResponsiveContainer width="100%" height={240}>
-          <PieChart style={{ fontSize: 12 }}>
+      <CardContent className="flex-1 pb-0">
+        <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[250px]">
+          <PieChart>
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Pie
-              data={data}
+              paddingAngle={10}
+              data={chartData}
               dataKey="amount"
               nameKey="product"
               cx="50%"
@@ -47,41 +79,10 @@ function PopularProductsChart() {
               outerRadius={86}
               innerRadius={64}
               strokeWidth={8}
-              labelLine={false}
-              label={({ cx, cy, midAngle, innerRadius, outerRadius, value, index }) => {
-                const radian = Math.PI / 180;
-                const radius = 12 + innerRadius + (outerRadius - innerRadius);
-                const x = cx + radius * Math.cos(-midAngle * radian);
-                const y = cy + radius * Math.sin(-midAngle * radian);
-
-                return (
-                  <text
-                    x={x}
-                    y={y}
-                    className="fill-muted-foreground text-xs"
-                    textAnchor={x > cx ? 'start' : 'end'}
-                    dominantBaseline="central"
-                  >
-                    {data[index].product.length > 12
-                      ? data[index].product.substring(0, 12).concat('...')
-                      : data[index].product}{' '}
-                    ({value})
-                  </text>
-                );
-              }}
-            >
-              {data.map((_, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  className={cn([colors[index], 'stroke-background outline-0 hover:opacity-80'])}
-                />
-              ))}
-            </Pie>
+            />
           </PieChart>
-        </ResponsiveContainer>
+        </ChartContainer>
       </CardContent>
     </Card>
   );
 }
-
-export { PopularProductsChart };

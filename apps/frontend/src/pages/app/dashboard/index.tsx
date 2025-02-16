@@ -1,4 +1,3 @@
-import {} from '~/components/ui/card';
 import { DayOrdersAmountCard } from '~/pages/app/dashboard/components/day-orders-amount-card';
 import { MonthCanceledOrdersAmountCard } from '~/pages/app/dashboard/components/month-canceled-orders-amount-card';
 import { MonthOrdersAmountCard } from '~/pages/app/dashboard/components/month-orders-amount-card';
