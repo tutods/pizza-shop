@@ -23,5 +23,9 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@tutods/biome-config": "^1.2.0",
     "lefthook": "^1.10.10"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": ["@biomejs/biome", "@swc/core", "esbuild"],
+    "onlyBuiltDependencies": ["lefthook"]
   }
 }

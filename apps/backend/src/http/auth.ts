@@ -1,6 +1,6 @@
 import jwt from '@elysiajs/jwt';
 import { Elysia, type Static, t } from 'elysia';
-import { env } from '~/env.ts';
+import { env } from '~/env';
 
 const jwtPayload = t.Object({
   sub: t.String(),

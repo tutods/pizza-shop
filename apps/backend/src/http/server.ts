@@ -1,9 +1,9 @@
 import chalk from 'chalk';
 import { Elysia } from 'elysia';
-import { authenticateFromLink } from '~/http/routes/authenticate-from-link.ts';
+import { authenticateFromLink } from '~/http/routes/authenticate-from-link';
 import { registerRestaurant } from '~/http/routes/register-restaurant';
 import { sendAuthLink } from '~/http/routes/send-auth-link';
-import { signOut } from '~/http/routes/sign-out.ts';
+import { signOut } from '~/http/routes/sign-out';
 
 const app = new Elysia().use(sendAuthLink).use(authenticateFromLink).use(signOut).use(registerRestaurant);
 

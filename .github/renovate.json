@@ -1,40 +1,56 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["customManagers:biomeVersions", "config:recommended"],
-  "platformAutomerge": true,
-  "prCreation": "immediate",
-  "updateInternalDeps": true,
+  "extends": [
+    "config:recommended",
+    "customManagers:biomeVersions",
+    "customManagers:dockerfileVersions",
+    "customManagers:githubActionsVersions",
+    "schedule:daily",
+    "schedule:automergeDaily"
+  ],
+  "labels": ["dependencies"],
+  "addLabels": ["dependencies"],
+  "timezone": "Europe/Lisbon",
   "rangeStrategy": "bump",
   "automerge": true,
   "automergeType": "pr",
-  "timezone": "Europe/Lisbon",
-  "schedule": ["after 3pm", "before 5am"],
+  "automergeStrategy": "rebase",
+  "commitMessagePrefix": "chore(deps): ",
+  "commitBodyTable": true,
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": true,
+  "configMigration": true,
+  "platformCommit": "enabled",
   "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true
+    "enabled": true
   },
-  "packageRules": [
-    {
-      "extends": ["monorepo:react"],
-      "groupName": "react monorepo",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
-    },
-    {
-      "description": "Automerge non-major updates",
-      "matchUpdateTypes": ["minor", "patch", "lockFileMaintenance"],
-      "automerge": true
-    },
-    {
-      "description": "Open major updates",
-      "matchUpdateTypes": ["major", "bump"]
-    }
-  ],
+  "rebaseWhen": "behind-base-branch",
+  "patch": {
+    "groupName": "non-major dependencies",
+    "groupSlug": "minor-patch"
+  },
+  "minor": {
+    "groupName": "non-major dependencies",
+    "groupSlug": "minor-patch"
+  },
+  "digest": {
+    "groupName": "non-major dependencies",
+    "groupSlug": "minor-patch"
+  },
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  },
+  "major": {
+    "dependencyDashboardApproval": true,
+    "commitMessagePrefix": "chore(deps-major): ",
+    "labels": ["dependencies", "breaking"],
+    "addLabels": ["breaking"]
+  },
   "hostRules": [
     {
-      "matchHost": "https://npm.pkg.github.com/",
+      "matchHost": "npm.pkg.github.com",
       "hostType": "npm",
       "token": "{{ secrets.GITHUB_TOKEN }}"
     }
-  ],
-  "npmrc": "@tutods:registry=https://npm.pkg.github.com/"
+  ]
 }

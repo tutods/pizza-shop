@@ -5,5 +5,12 @@
     "clientKind": "git",
     "defaultBranch": "main",
     "enabled": true
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noArrayIndexKey": "warn"
+      }
+    }
   }
 }
