@@ -1,9 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { DialogDescription, DialogOverlay, DialogTitle } from '@radix-ui/react-dialog';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 import { getManagedRestaurant } from '~/api/get-managed-restaurant';
+import { updateProfile } from '~/api/update-profile';
 import { Button } from './ui/button';
 import { DialogClose, DialogContent, DialogFooter, DialogHeader, DialogPortal } from './ui/dialog';
 import { Input } from './ui/input';
@@ -22,6 +24,15 @@ export function StoreProfileDialog() {
     queryKey: ['managed-restaurant'],
     queryFn: getManagedRestaurant,
   });
+  const { mutateAsync: updateProfileFn } = useMutation({
+    mutationFn: updateProfile,
+    onError: () => {
+      toast.error('Falha ao atualizar o perfil, tente novamente!');
+    },
+    onSuccess: () => {
+      toast.success('Perfil atualizado com sucesso!');
+    },
+  });
 
   const form = useForm<StoreProfileSchema>({
     resolver: zodResolver(storeProfileSchema),
@@ -30,6 +41,10 @@ export function StoreProfileDialog() {
       description: data?.description ?? '',
     },
   });
+
+  async function handleUpdateProfile(data: StoreProfileSchema) {
+    await updateProfileFn(data);
+  }
 
   return (
     <DialogPortal>
@@ -41,7 +56,7 @@ export function StoreProfileDialog() {
             Atualize as informações do seu estabelecimento visíveis aos seus clientes.
           </DialogDescription>
         </DialogHeader>
-        <form>
+        <form onSubmit={form.handleSubmit(handleUpdateProfile)}>
           <div className="space-y-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
@@ -64,7 +79,7 @@ export function StoreProfileDialog() {
               </Button>
             </DialogClose>
 
-            <Button type="submit" variant="success">
+            <Button type="submit" variant="success" disabled={form.formState.isSubmitting}>
               Salvar
             </Button>
           </DialogFooter>
