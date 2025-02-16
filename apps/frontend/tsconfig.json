@@ -1,18 +1,16 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
+  "extends": ["@tutods/typescript-config/react.json"],
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "~/*": ["./src/*"]
+      "~contexts/*": ["src/contexts/*"],
+      "~layout/*": ["src/layout/*"],
+      "~lib/*": ["src/lib/*"],
+      "~hooks/*": ["src/hooks/*"],
+      "~shared/*": ["src/shared/*"],
+      "~static/*": ["src/static/*"],
+      "~/*": ["src/*"]
     }
-  }
+  },
+  "include": ["src"]
 }

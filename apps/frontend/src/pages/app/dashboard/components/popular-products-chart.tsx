@@ -71,7 +71,6 @@ function PopularProductsChart() {
               }}
             >
               {data.map((_, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey:
                 <Cell
                   key={`cell-${index}`}
                   className={cn([colors[index], 'stroke-background outline-0 hover:opacity-80'])}

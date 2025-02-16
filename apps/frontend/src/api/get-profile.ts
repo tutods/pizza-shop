@@ -1,4 +1,4 @@
-import { api } from '~/lib/api.ts';
+import { api } from '~/lib/api';
 
 type GetProfileResponse = {
   id: string;

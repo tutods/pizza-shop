@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import { Pagination } from '~/components/pagination';
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '~/components/ui/table';
 import { OrderTableFilters } from '~/pages/app/orders/components/table-filters';
@@ -7,7 +6,7 @@ import { OrderTableRow } from '~/pages/app/orders/components/table-row';
 function Orders() {
   return (
     <>
-      <Helmet title="Pedidos" />
+      <title>Pedidos | pizza.shop</title>
       <section className="flex flex-col gap-4">
         <h1 className="font-bold text-3xl tracking-tight">Pedidos</h1>
 

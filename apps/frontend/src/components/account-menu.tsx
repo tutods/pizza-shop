@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Building, ChevronDown, LogOut } from 'lucide-react';
-import { getManagedRestaurant } from '~/api/get-managed-restaurant.ts';
-import { getProfile } from '~/api/get-profile.ts';
+import { getManagedRestaurant } from '~/api/get-managed-restaurant';
+import { getProfile } from '~/api/get-profile';
 import { Button } from '~/components/ui/button';
 import { Dialog, DialogTrigger } from '~/components/ui/dialog';
 import {
