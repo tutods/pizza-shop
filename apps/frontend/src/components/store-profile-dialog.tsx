@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { DialogDescription, DialogOverlay, DialogTitle } from '@radix-ui/react-dialog';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
@@ -20,18 +20,11 @@ const storeProfileSchema = z.object({
 type StoreProfileSchema = z.infer<typeof storeProfileSchema>;
 
 export function StoreProfileDialog() {
+  const queryClient = useQueryClient();
   const { data } = useQuery({
     queryKey: ['managed-restaurant'],
     queryFn: getManagedRestaurant,
-  });
-  const { mutateAsync: updateProfileFn } = useMutation({
-    mutationFn: updateProfile,
-    onError: () => {
-      toast.error('Falha ao atualizar o perfil, tente novamente!');
-    },
-    onSuccess: () => {
-      toast.success('Perfil atualizado com sucesso!');
-    },
+    staleTime: Number.POSITIVE_INFINITY,
   });
 
   const form = useForm<StoreProfileSchema>({
@@ -39,6 +32,25 @@ export function StoreProfileDialog() {
     values: {
       name: data?.name ?? '',
       description: data?.description ?? '',
+    },
+  });
+
+  const { mutateAsync: updateProfileFn } = useMutation({
+    mutationFn: updateProfile,
+    onError: () => {
+      toast.error('Falha ao atualizar o perfil, tente novamente!');
+    },
+    onSuccess: (_, variables) => {
+      const cached = queryClient.getQueryData(['managed-restaurant']);
+
+      if (cached) {
+        queryClient.setQueryData(['managed-restaurant'], {
+          ...cached,
+          ...variables,
+        });
+      }
+
+      toast.success('Perfil atualizado com sucesso!');
     },
   });
 
