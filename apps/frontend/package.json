@@ -37,7 +37,7 @@
     "@rsdoctor/rspack-plugin": "^0.4.13",
     "@tailwindcss/postcss": "^4.0.6",
     "@tutods/typescript-config": "^1.0.2",
-    "@types/react": "^19.0.8",
+    "@types/react": "^19.0.9",
     "@types/react-dom": "^19.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
