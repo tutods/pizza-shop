@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
-import { getManagedRestaurant } from '~/api/get-managed-restaurant';
+import { type GetManagedRestaurantResponse, getManagedRestaurant } from '~/api/get-managed-restaurant';
 import { updateProfile } from '~/api/update-profile';
 import { Button } from './ui/button';
 import { DialogClose, DialogContent, DialogFooter, DialogHeader, DialogPortal } from './ui/dialog';
@@ -14,7 +14,7 @@ import { Textarea } from './ui/textarea';
 
 const storeProfileSchema = z.object({
   name: z.string().min(1),
-  description: z.string(),
+  description: z.string().nullable(),
 });
 
 type StoreProfileSchema = z.infer<typeof storeProfileSchema>;
@@ -37,11 +37,8 @@ export function StoreProfileDialog() {
 
   const { mutateAsync: updateProfileFn } = useMutation({
     mutationFn: updateProfile,
-    onError: () => {
-      toast.error('Falha ao atualizar o perfil, tente novamente!');
-    },
-    onSuccess: (_, variables) => {
-      const cached = queryClient.getQueryData(['managed-restaurant']);
+    onMutate(variables) {
+      const cached = queryClient.getQueryData<GetManagedRestaurantResponse>(['managed-restaurant']);
 
       if (cached) {
         queryClient.setQueryData(['managed-restaurant'], {
@@ -50,6 +47,16 @@ export function StoreProfileDialog() {
         });
       }
 
+      return { previousProfile: cached };
+    },
+    onError(_, __, context) {
+      if (context?.previousProfile) {
+        queryClient.setQueryData(['managed-restaurant'], context.previousProfile);
+      }
+
+      toast.error('Falha ao atualizar o perfil, tente novamente!');
+    },
+    onSuccess() {
       toast.success('Perfil atualizado com sucesso!');
     },
   });

@@ -1,6 +1,6 @@
 import { api } from '~/lib/api';
 
-type GetManagedRestaurantResponse = {
+export type GetManagedRestaurantResponse = {
   id: string;
   name: string;
   description: string | null;
