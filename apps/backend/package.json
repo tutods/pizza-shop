@@ -16,7 +16,7 @@
     "@elysiajs/jwt": "^1.2.0",
     "@paralleldrive/cuid2": "^2.2.2",
     "dayjs": "^1.11.13",
-    "drizzle-orm": "^0.39.3",
+    "drizzle-orm": "^0.45.0",
     "elysia": "latest",
     "pg": "^8.13.3",
     "zod": "^3.24.2"
