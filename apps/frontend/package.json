@@ -35,7 +35,7 @@
     "@rsbuild/plugin-image-compress": "^1.1.0",
     "@rsbuild/plugin-react": "1.1.0",
     "@rsbuild/plugin-svgr": "1.0.6",
-    "@rsdoctor/rspack-plugin": "^0.4.13",
+    "@rsdoctor/rspack-plugin": "^1.5.16",
     "@tailwindcss/postcss": "^4.0.6",
     "@tutods/typescript-config": "^1.0.2",
     "@types/react": "^19.0.8",
